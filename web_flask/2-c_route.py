@@ -19,7 +19,8 @@ def hbnb():
 
 @app.route("/c/<text>", strict_slashes=False)
 def hello_c(text):
-    """ Displays returns text with C'"""
+    """ Displays:
+            returns text with C'"""
     text = text.replace("_", " ")
     return f"C {text}"
 
