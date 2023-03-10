@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """A script that starts a Flask web application
-and has a route to hbnb"""
+and has a route to hbnb
+Routes:
+    /: Displays 'Hello HBNB!',
+    /hbnb: Displays 'HBNB',
+    /c/<text>: Displays 'C' followed by the inputed text.
+"""
 from flask import Flask
 
 
@@ -18,7 +23,7 @@ def hbnb():
     return "HBNB"
 
 @app.route("/c/<text>", strict_slashes=False)
-def hello_c(text):
+def c(text):
     """ Displays:
             returns text with C'"""
     text = text.replace("_", " ")
