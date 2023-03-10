@@ -2,7 +2,6 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, ForeignKey, Table, Integer, String, Float
-from models.amenity import Amenity
 from sqlalchemy.orm import relationship
 from os import getenv
 import shlex
@@ -82,5 +81,6 @@ class Place(BaseModel, Base):
         @amenities.setter
         def amenities(self, obj=None):
             """ Appends amenity ids to the attribute """
+            from models.amenity import Amenity
             if type(obj) is Amenity and obj.id not in self.amenity_ids:
                 self.amenity_ids.append(obj.id)
