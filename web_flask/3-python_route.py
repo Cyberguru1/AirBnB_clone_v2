@@ -30,7 +30,7 @@ def c(text):
     text = text.replace("_", " ")
     return "C {}".format(text)
 
-
+@app.route("/python", strict_slashes=False)
 @app.route("/python/(<text>)", strict_slashes=False)
 def c(text="is_cool"):
     """Displays 'Python' followed by the value of <text>."""
