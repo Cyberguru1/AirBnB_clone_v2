@@ -22,7 +22,7 @@ class State(BaseModel):
         contents = []
         result = []
         for key in var:
-            city = var.replace(',', ' ')
+            city = key.replace(',', ' ')
             city = shlex.split(city)
             if (city[0] == 'City'):
                 contents.append(var[key])
