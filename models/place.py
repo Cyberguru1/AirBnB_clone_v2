@@ -2,6 +2,7 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, ForeignKey, Table, Integer, String, Float
+from models.amenity import Amenity
 from sqlalchemy.orm import relationship
 from os import getenv
 import shlex
@@ -10,11 +11,13 @@ import models
 
 place_amenity = Table("place_amenity", Base.metadata,
                       Column("place_id", String(60),
-                             ForeignKey("places.id"),
+                             ForeignKey("places.id", onupdate='CASCADE',
+                                            ondelete='CASCADE'),
                              primary_key=True,
                              nullable=False),
                       Column("amenity_id", String(60),
-                             ForeignKey("amenities.id"),
+                             ForeignKey("amenities.id", onupdate='CASCADE',
+                                            ondelete='CASCADE'),
                              primary_key=True,
                              nullable=False))
 
